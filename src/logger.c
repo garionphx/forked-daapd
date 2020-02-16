@@ -359,7 +359,7 @@ logger_init(char *file, char *domains, int severity)
       return -1;
     }
 
-  ret = fchown(fileno(logfile), runas_uid, 0);
+  ret = fchown(fileno(logfile), runas_uid, runas_gui);
   if (ret < 0)
     fprintf(stderr, "Failed to set ownership on logfile: %s\n", strerror(errno));
 
